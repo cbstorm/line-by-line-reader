@@ -1,12 +1,10 @@
-import EventEmitter from 'events';
 import fs from 'fs';
 import readline from 'readline';
 
-export class LineByLineReader extends EventEmitter {
+export class LineByLineReader {
     private filePath: fs.PathLike;
     private rl: readline.Interface;
     constructor(filePath: fs.PathLike) {
-        super();
         this.filePath = filePath;
         this.rl = readline.createInterface({
             input: fs.createReadStream(this.filePath, {
